@@ -1,0 +1,9 @@
+{
+  "total_frames": 807,
+  "total_detections": 6561,
+  "total_unique_tracks": 18,
+  "average_processing_time": 0.09876057561002256,
+  "max_processing_time": 3.934713363647461,
+  "min_processing_time": 0.07094645500183105,
+  "average_fps": 10.125497890461025
+}

@@ -503,7 +503,7 @@ def main():
     )
     
     try:
-        pipeline.run(visualize=True, save_video=True)
+        pipeline.run(visualize=False, save_video=False)
     except Exception as e:
         logger.error(f"実行エラー: {e}")
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<configuration>
+    <input>
+        <net-file value="generated.net.xml"/>
+        <route-files value="generated.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+    </time>
+</configuration>
