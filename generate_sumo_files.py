@@ -107,6 +107,21 @@ def create_sumocfg_file(net_file, rou_file, output_path="sumo/generated.sumocfg"
         f.write(pretty_xml_str)
     print(f"SUMO設定ファイルを作成しました: {output_path}")
 
+def create_netecfg_file(net_file, output_path="sumo/generated.netecfg"):
+    """
+    netedit設定ファイルを作成する。
+    """
+    config = ET.Element('netedit')
+    ET.SubElement(config, 'net-file').set('value', net_file)
+
+    # XMLを整形して保存
+    xml_str = ET.tostring(config, 'utf-8')
+    pretty_xml_str = minidom.parseString(xml_str).toprettyxml(indent="    ")
+
+    with open(output_path, "w") as f:
+        f.write(pretty_xml_str)
+    print(f"netedit設定ファイルを作成しました: {output_path}")
+
 if __name__ == "__main__":
     import os
 
@@ -119,10 +134,12 @@ if __name__ == "__main__":
     net_file = "sumo/generated.net.xml"
     rou_file = "sumo/generated.rou.xml"
     sumocfg_file = "sumo/generated.sumocfg"
+    netecfg_file = "sumo/generated.netecfg"
 
     # 各ファイルの生成
     create_net_file(net_file)
     create_rou_file(csv_file, rou_file)
     create_sumocfg_file(os.path.basename(net_file), os.path.basename(rou_file), sumocfg_file)
+    create_netecfg_file(os.path.basename(net_file), netecfg_file)
 
     print("SUMOファイルの生成が完了しました。")
